@@ -4,10 +4,10 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage 
-
+from tqdm import tqdm
+import pandas as pd
 
 CLIENT_SECRETS_FILE = "./client_secret.json" 
-
 
 SCOPES = ['https://www.googleapis.com/auth/youtube.force-ssl']
 API_SERVICE_NAME = 'youtube'
@@ -73,7 +73,7 @@ def fetchingData(channel_title):
     reply_count_pop = []
     like_count_pop = []
 
-    from tqdm import tqdm
+    
     for i, video in enumerate(tqdm(video_id, ncols = 100)):
         response = service.commentThreads().list(
                         part = 'snippet',
@@ -103,8 +103,6 @@ def fetchingData(channel_title):
         video_desc_pop.extend([video_desc[i]]*len(comments_temp))
         
     query_pop = [channel_title] * len(video_id_pop)
-
-    import pandas as pd
 
     output_dict = {
             'Query': query_pop,

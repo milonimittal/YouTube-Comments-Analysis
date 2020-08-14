@@ -1,4 +1,3 @@
-
 import pandas
 import nltk
 import itertools
@@ -46,8 +45,6 @@ def analyzingSentiments(dataset):
   unigrams = [word for word in unigrams if (word in setofwords and len(word)>2 and word not in ["gon"])]
   count = Counter(unigrams) 
 
-  ###Pre-processing ends###
-
   ###Finding general opinion about channel###
 
   #extracting the top 1/4th words in terms of frequency
@@ -87,12 +84,6 @@ def analyzingSentiments(dataset):
 
   return unigrams
 
-
-
-
-
-
-
   #most_common_element2 = count2.most_common(25)
 
   # word2=[]
@@ -103,4 +94,3 @@ def analyzingSentiments(dataset):
   # sns.set(rc={'figure.figsize':(13,8)})
   # g = sns.barplot(x=word2, y=num2)
   # g.set_xticklabels(g.get_xticklabels(), rotation=30)
-

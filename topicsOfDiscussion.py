@@ -1,4 +1,3 @@
-###Finding other things that people talk about in the comments section###
 import pandas
 import nltk
 import itertools
@@ -13,7 +12,7 @@ import random
 import re
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
-#Applying chi-square testing to find useful collocations
+
 
 def findingTopics(unigrams):
     count = Counter(unigrams) 
@@ -54,8 +53,6 @@ def findingTopics(unigrams):
     for i in channel_about:
         print(i)
 
-
-
     #Creating a wordcloud of all frequently used words
     stopwords = set(STOPWORDS)
     comment_words=''
@@ -74,6 +71,7 @@ def findingTopics(unigrams):
     plt.axis('off')
     plt.imshow(wordcloud)
     plt.show()
+
 
 def takeSecond(elem):
     return elem[1]
